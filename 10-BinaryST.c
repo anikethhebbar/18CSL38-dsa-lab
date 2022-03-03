@@ -33,7 +33,7 @@ void inorder(NODE *root)
         printf("%d\t", root->data);
         inorder(root->right);
     }
-}
+} 
 void preorder(NODE *root)
 {
     if(root != NULL)
