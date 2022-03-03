@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #define MAX_ADDR 100
-struct emmployee
+struct employee
 {
     int empid;
     int age;
