@@ -5,41 +5,37 @@
 int stack[MAX];
 int top = -1;
 int item;
-
-void push(item)
+int isFull()
 {
-
-    if (top == (MAX - 1))
-        printf("\n Stack Overflow");
-    else
-    {
-        top++;
-        stack[top] = item;
-    }
+    if (top >= MAX - 1)
+        return 1;
+    return 0;
+}
+int isEmpty()
+{
+    if (top == -1)
+        return 1;
+    return 0;
+}
+void push(int item)
+{
+    top++;
+    stack[top] = item;
 }
 
 void pop()
 {
-    if (top == -1)
-        printf("\n Stack Underflow");
-    else
-    {
-        item = stack[top];
-        top--;
-    }
+    item = stack[top];
+    top--;
 }
 
 void display()
 {
     int i;
-    if (top == -1)
-        printf("\n Sorry Empty Stack");
-    else
-    {
-        printf("\nThe elements of the stack are\n");
-        for (i = top; i >= 0; i--)
-            printf("stack[%d] = %d\n", i, stack[i]);
-    }
+
+    printf("\nThe elements of the stack are\n");
+    for (i = top; i >= 0; i--)
+        printf("stack[%d] = %d\n", i, stack[i]);
 }
 
 void palindrome()
@@ -82,12 +78,24 @@ void main()
         switch (choice)
         {
         case 1:
-            push();
+            printf("Enter element to be pushed:\n");
+            scanf("%d", &item);
+            if (isFull())
+                printf("Stack Overflow");
+            push(item);
             break;
         case 2:
-            pop();
+            if (isEmpty())
+                printf("Stack Underflow");
+            else
+            {
+                pop();
+                printf("The element deleted is %d\n", item);
+            }
             break;
         case 3:
+            if (isEmpty)
+                printf("Stack is Empty");
             display();
             break;
         case 4:
