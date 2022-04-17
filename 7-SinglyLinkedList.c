@@ -85,12 +85,11 @@ void delete_end()
     /* If only there is one node in the List */
     {
         printf("%s %s %s %d %d\n", temp->usn, temp->name, temp->branch, temp->sem, temp->phno);
+        free(temp);
+        first = NULL;
     }
     else
     {
-        last->phno;
-        free(temp);
-        first = NULL;
         /* If more than one node in the List */
         while (temp->next != last)
             temp = temp->next;
@@ -133,7 +132,7 @@ int main()
     first = NULL;
     temp = temp1 = NULL;
     printf("-----------------MENU----------------------\n");
-    printf("\n 1 Create a SLL of n Employees");
+    printf("\n 1 Create a SLL of n Students");
     printf("\n 2 - Display from beginning");
     printf("\n 3 - Insert at end");
     printf("\n 4 - Delete at end");
