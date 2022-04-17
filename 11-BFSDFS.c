@@ -50,14 +50,14 @@ void DFS(int src, int *cnt)
     {
         if (a[src][j] == 1 && visited2[j] == 0)
         {
-            (*cnt)++;
-            DFS(j, cnt);
+            cnt++;
+            DFS(j);
         }
     }
 }
 int main()
 {
-    int i, choice, a, *count = &a;
+    int i, choice, count = 0;
     read_data();
     printf("\t\t**ADJACENCY MATRIX FOR CITIES HAS CREATED SUCCESSFULLY**\n");
     while (1)
@@ -81,9 +81,9 @@ int main()
             printf("Enter the source vertex between 0 to %d\n", n - 1);
             scanf("%d", &source);
             a = 0;
-            DFS(source, count);
+            DFS(source);
             print_data(visited2);
-            if (*count == n - 1)
+            if (count == n - 1)
                 printf("Graph is connected\n");
             else
                 printf("Graph is not connected\n");
